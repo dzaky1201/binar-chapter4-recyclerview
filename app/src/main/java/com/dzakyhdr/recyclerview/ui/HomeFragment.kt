@@ -28,13 +28,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyelerview = view.findViewById(R.id.rv_user)
 
-        val list = listOf(
+        val list = arrayListOf(
             Username("Dzaky Haidar", "085155361372"),
             Username("Farros", "08515XXXX"),
             Username("Salim", "085315XXXX"),
         )
 
-        val adapter = UserAdapter(list)
+        val adapter = UserAdapter()
+        adapter.submitData(list)
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         recyelerview.layoutManager = layoutManager
         recyelerview.adapter = adapter
